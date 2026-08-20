@@ -1,3 +1,7 @@
+import { registerLicense } from "@syncfusion/ej2-base";
+registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
+import * as Sentry from "@sentry/react-router";
+
 import {
   isRouteErrorResponse,
   Links,
@@ -9,9 +13,6 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { registerLicense } from "@syncfusion/ej2-base";
-
-registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -60,6 +61,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         ? "The requested page could not be found."
         : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
+    Sentry.captureException(error);
     details = error.message;
     stack = error.stack;
   }

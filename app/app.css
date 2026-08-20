@@ -542,3 +542,14 @@ body {
   top: 45px;
   right: 40px;
 }
+/* Syncfusion Licensing */
+#js-licensing,
+div[style*="z-index: 999999999"],
+div[style*="z-index: 99999999"],
+.e-license-section {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
