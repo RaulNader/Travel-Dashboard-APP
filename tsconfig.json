@@ -1,5 +1,4 @@
 {
-  "exclude": ["movie-app"],
   "include": [
     "**/*",
     "**/.server/**/*",
